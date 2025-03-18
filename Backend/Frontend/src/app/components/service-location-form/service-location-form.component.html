@@ -1,0 +1,33 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="col-md-10">
+      <div class="card">
+          <div class="card-header">
+              <h3 class="card-title">Service Location Form</h3>
+          </div>
+          <div class="card-body">
+              <div class="row justify-content-center">    
+              <form (ngSubmit)="onSubmit()" [formGroup]="serviceForm">
+          <div class="form-group">
+          <label for="serviceName" class="form-label">Service Name</label>
+          <input type="text" id="serviceName" name="serviceName"  class="form-control" formControlName="serviceName" required>
+        </div>
+        <div class="form-group">
+          <label for="locationName" class="form-label">Location Name</label>
+          <input type="text" id="locationName" name="locationName"  class="form-control" formControlName="locationName" required>
+        </div>
+        <div class="form-group">
+          <label for="status">Service Type</label>
+          <select class="form-control" id="status" formControlName="serviceType"  required>
+            <option value="" disabled selected>select</option>
+            <option value="basic">basic</option>
+          <option value="advanced">advanced</option>
+          <option value="premium">premium</option>
+          </select>
+      </div>
+        <div class="form-group">
+          <label for="price" class="form-label">Price</label>
+          <input type="number" id="price" name="price"  class="form-control" formControlName="price" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+  </div>

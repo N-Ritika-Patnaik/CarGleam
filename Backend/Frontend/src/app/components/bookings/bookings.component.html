@@ -1,0 +1,35 @@
+<div class="container mt-5">
+  <h2>Book a Service</h2>
+  <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3 form-group">
+      <label for="userid">User ID</label>
+      <input type="number" id="userid" formControlName="userid" value="userId" class="form-control" placeholder="Enter User ID">
+    </div>
+    <div class="mb-3 form-group">
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" formControlName="fullname" [value]="name" class="form-control" placeholder="Enter Full Name">
+    </div>
+    <div class="mb-3 form-group">
+      <label for="serviceType">Select Service Type:</label>
+      <select id="serviceType" class="form-control" formControlName="servicelocationid" (change)="onServiceTypeChange($event)">
+        <option value="" disabled selected>Select a service type</option>
+        <option *ngFor="let service of serviceLocations" [value]="service.serviceLocationId">
+          {{ service.serviceName }}-{{ service.locationName }}
+        </option>
+      </select>
+    </div>
+    <div class="mb-3 form-group">
+      <label for="machineid">Select Machine:</label>
+      <select id="machineid" formControlName="machineid" class="form-control" [disabled]="machineData.length === 0">
+        <option *ngFor="let machine of machineData" [value]="machine.machineId">
+          {{ machine.machineName }}
+        </option>
+      </select>
+    </div>
+    <div class="mb-3 form-group">
+      <label for="servicelocationdate">Service Location Date</label>
+      <input type="datetime-local" id="servicelocationdate" formControlName="servicelocationdate" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

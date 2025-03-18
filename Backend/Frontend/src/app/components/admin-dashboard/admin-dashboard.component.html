@@ -1,0 +1,104 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">Car Gleam</a>
+    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
+        <!-- User Login Link -->
+        <li class="nav-item">
+          <button class="btn btn-primary" (click)="logout()">Logout</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav> 
+<div class="container mt-4">
+  <!-- Service Locations Section -->
+  <h2>Service Locations</h2>
+  <button class="btn btn-success" data-toggle="modal" data-target="#serviceLocationModal"
+    routerLink="/servicelocationform">Add New Service</button>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Service Name</th>
+        <th>Location Name</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let serviceLocation of serviceLocations">
+        <td>{{ serviceLocation.serviceName }}</td>
+        <td>{{ serviceLocation.locationName }}</td>
+        <td>₹{{ serviceLocation.price}}</td>
+        <td>
+          <button class="btn btn-primary"
+            [routerLink]="['/editserviceform', serviceLocation.serviceLocationId]">Edit</button>
+          <button class="btn btn-danger"
+            (click)="deleteServiceLocation(serviceLocation.serviceLocationId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Machines Section -->
+  <h2>Machines</h2>
+  <button class="btn btn-success" routerLink="/machineform">Add New Machine</button>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <!-- <th>Machine Id</th> -->
+        <th>Machine Name</th>
+        <th>Status</th>
+        <!-- <th>Type</th> -->
+        <th>Duration</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let machine of machines">
+        <td>{{ machine.machineName }}</td>
+        <td>{{ machine.status }}</td>
+        <!-- <td>{{ machine.machineType }}</td> -->
+        <td>{{ machine.duration }}</td>
+        <td>
+          <button class="btn btn-primary" [routerLink]="['/editmachineform', machine.machineId]">Edit</button>
+          <button class="btn btn-danger" (click)="deleteMachine(machine.machineId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Bookings Section -->
+  <h2>Bookings</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Booking ID</th>
+        <th>User ID</th>
+        <th>Full Name</th>
+        <th>Service Location</th>
+        <th>Location Name</th>
+        <th>Machine ID</th>
+        <th>Machine</th>
+        <th>Service Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of bookings">
+        <td>{{ booking.bookingId }}</td>
+        <td>{{ booking.userId }}</td>
+        <td>{{ booking.fullName }}</td>
+        <td>{{ booking.serviceName }}</td>
+        <td>{{ booking.locationName }}</td>
+        <td>{{booking.machineId}}</td>
+        <td>{{ booking.machineName }}</td>
+        <td>{{ booking.serviceDate | date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

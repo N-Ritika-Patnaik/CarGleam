@@ -1,0 +1,33 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Machine Form</h3>
+            </div>
+            <div class="card-body">
+                <div class="row justify-content-center">
+                <form (ngSubmit)="onSubmit()" [formGroup]="machineForm" >
+                    <div class="form-group">
+                        <label for="machinename">Machine Name</label>
+                        <input type="text" class="form-control" id="machineName" formControlName="machinename" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Type</label>
+                        <input type="text" class="form-control" id="type" formControlName="machinetype"  required>
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Duration</label>
+                        <input type="text" class="form-control" id="duration" formControlName="duration"  required>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="status">Status</label>
+                        <select class="form-control" id="status" formControlName="status"  required>
+                        <option value="active">Available</option>
+                        <option value="inactive">Not</option>
+                        </select>
+                    </div> -->
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </form>
+            </div>
+  </div>
+</div>

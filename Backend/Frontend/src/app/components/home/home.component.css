@@ -1,0 +1,30 @@
+/* home.component.css */
+.home-background {
+    background-image: url('https://images.unsplash.com/photo-1575844611398-2a68400b437c?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2FyJTIwd2FzaHxlbnwwfHwwfHx8MA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    /* height: 100vh; Full viewport height */
+    height: 93vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+   
+  .home-content {
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background to improve readability */
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  /* Footer Styles */
+.footer {
+    background-color:rgba(255, 255, 255, 0.8);;
+    color: black;
+    text-align: center;
+    position:fixed;
+    width:100%;
+    bottom: 0;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+  }

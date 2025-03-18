@@ -1,0 +1,53 @@
+<div class="container mt-4">
+    <h2>Payment</h2>
+    <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+      <!-- Payment Method -->
+      <div class="mb-3">
+        <label class="form-label">Select Payment Method</label>
+        <select class="form-select" formControlName="paymentMethod">
+          <option *ngFor="let method of paymentMethods" [value]="method">{{ method }}</option>
+        </select>
+        <div *ngIf="paymentForm.get('paymentMethod')?.invalid && paymentForm.get('paymentMethod')?.touched" class="text-danger">
+          Payment method is required.
+        </div>
+      </div>
+   
+      <!-- Payment Amount (Readonly) -->
+      <div class="mb-3">
+        <label class="form-label">Total Amount</label>
+        <input type="text" class="form-control" formControlName="paymentAmount" readonly>
+      </div>
+   
+      <!-- Card Details -->
+      <div *ngIf="isCardSelected">
+        <div class="mb-3">
+          <label class="form-label">Card Number</label>
+          <input type="text" class="form-control" formControlName="cardNumber" placeholder="Enter 16-digit Card Number">
+          <div *ngIf="paymentForm.get('cardNumber')?.invalid && paymentForm.get('cardNumber')?.touched" class="text-danger">
+            Card number must be 16 digits.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Card Expiry (MM/YY)</label>
+          <input type="text" class="form-control" formControlName="cardExpiry" placeholder="MM/YY">
+          <div *ngIf="paymentForm.get('cardExpiry')?.invalid && paymentForm.get('cardExpiry')?.touched" class="text-danger">
+            Enter a valid expiry date (MM/YY).
+          </div>
+        </div>
+      </div>
+   
+      <!-- UPI Details -->
+      <div *ngIf="isUpiSelected">
+        <div class="mb-3">
+          <label class="form-label">UPI ID</label>
+          <input type="text" class="form-control" formControlName="upiId" placeholder="Enter UPI ID">
+          <div *ngIf="paymentForm.get('upiId')?.invalid && paymentForm.get('upiId')?.touched" class="text-danger">
+            Enter a valid UPI ID.
+          </div>
+        </div>
+      </div>
+   
+      <button type="submit" class="btn btn-primary" [disabled]="paymentForm.invalid">Make Payment</button>
+    </form>
+  </div>
+   

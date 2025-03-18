@@ -1,0 +1,73 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Machine Form</h3>
+            </div>
+            <div class="card-body">
+                <div class="row justify-content-center">
+                <form (ngSubmit)="onSubmit()" [formGroup]="machineForm" >
+                    <div class="form-group">
+                        <label for="machineName">Machine Name</label>
+                        <input type="text" class="form-control" id="machineName" formControlName="machineName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="machineType">Type</label>
+                        <input type="text" class="form-control" id="machineType" formControlName="machineType"  required>
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Duration</label> 
+                         <input type="text" class="form-control" id="duration" formControlName="duration"  required> 
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="status">Status</label>
+                        <select class="form-control" id="status" formControlName="status"  required>
+                        <option value="Available">Available</option>
+                        <option value="Unavailable">Unavailable</option>
+                        </select>
+                    </div> -->
+                    <button type="submit" class="btn btn-primary" >Add</button>
+                </form>
+            </div>
+  </div>
+</div>
+
+<!-- Button to trigger modal -->
+<!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#machineModal">
+    Add New Machine
+  </button> -->
+  
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="machineModal" tabindex="-1" role="dialog" aria-labelledby="machineModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="machineModalLabel">Machine Form</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onSubmit()" [formGroup]="machineForm">
+              <label for="machineName">Machine Name</label>
+              <input type="text" class="form-control" id="machineName" formControlName="machineName" required>
+            
+            <div class="form-group">
+              <label for="machineType">Type</label>
+              <input type="text" class="form-control" id="machineType" formControlName="machineType" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="duration" formControlName="duration" required>
+            </div>
+            <div class="form-group">
+              <label for="status">Status</label>
+              <select class="form-control" id="status" formControlName="status" required>
+                <option value="active">Available</option>
+                <option value="inactive">Not</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+         
+       
+      
+    -->

@@ -1,0 +1,31 @@
+<app-bookings></app-bookings>
+
+
+<div class="container mt-4">
+    <h2>Your Bookings</h2>
+    <table class="table table-striped" *ngIf="bookings.length > 0; else noBookings">
+      <!-- if block by ngif or else else block -name=noBooking, it will redirect to line 27 -->
+      <thead>
+        <tr>
+          <th>Booking ID</th>
+          <th>Service Location</th>
+          <th>Location Name</th>
+          <th>Machine</th>
+          <th>Service Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of bookings">
+          <td>{{ booking.bookingId }}</td>
+          <td>{{ booking.serviceName }}</td>
+          <td>{{ booking.locationName }}</td>
+          <td>{{ booking.machineName }}</td>
+          <td>{{ booking.serviceDate | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- else block run -->
+    <ng-template #noBookings>
+      <p>No bookings found.</p>
+    </ng-template>
+  </div>

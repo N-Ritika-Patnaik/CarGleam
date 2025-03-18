@@ -1,0 +1,16 @@
+.container {
+    max-width: 500px;
+    margin: auto;
+  }
+   
+  h2 {
+    text-align: center;
+  }
+   
+  .form-label {
+    font-weight: bold;
+  }
+   
+  .btn-primary {
+    width: 100%;
+  }
