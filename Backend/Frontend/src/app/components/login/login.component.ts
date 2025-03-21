@@ -16,7 +16,7 @@ export class LoginComponent {
 
   // Hardcoded admin credentials
   private adminEmail: string = 'admin1@email.com';
-  private adminPassword: string = 'admin!1';
+  private adminPassword: string = 'admin!123';
  
   constructor(private authService: AuthService, private router: Router) { }
  
